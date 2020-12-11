@@ -5,6 +5,9 @@ import {auth} from '../../firebase/firebase.utilite';
 import {connect} from 'react-redux';
 import CartIcon from '../cart-icon/cart-icon.component.jsx';
 import CartDropDown from '../cart-dropdown/cart-dropdown.component';
+import {createStructuredSelector} from 'reselect';
+import { selectCartHidden } from "../../redux/cart/cart.selector";
+import { selectCurrentUser } from "../../redux/user/user.selector";
 
 const Header =({currentuser,hidden}) =>(
     <div className='header'>
@@ -27,9 +30,9 @@ CONTACT
     </div>
 );
 
-const mapStateToProps = ({user:{currentuser},cart:{hidden}}) => ({
-currentuser,
-hidden
+const mapStateToProps = createStructuredSelector({
+currentuser:selectCurrentUser,
+hidden:selectCartHidden
 });
 
 export default connect(mapStateToProps)(Header);
