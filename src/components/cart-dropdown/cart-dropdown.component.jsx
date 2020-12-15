@@ -17,10 +17,10 @@ const CartDropDown = ({cartItems,history,dispatch}) => (
                     <CartItem key={cartItem.id} item={cartItem} />              
                      ))
                      :
-                     <span className='empty-message'>Your Cart Is Empty</span>
+                     <span className='empty-message'>Your Bag Is Empty</span>
                      }
         </div>
-        <CustomButton onClick={()=> {history.push('/checkout');dispatch(toggleCartHidden());}} >GO TO CHECKOUT</CustomButton>
+        <CustomButton onClick={()=> {history.push('/checkout');dispatch(toggleCartHidden());}} >GO TO Bag</CustomButton>
 
     </div>
 );

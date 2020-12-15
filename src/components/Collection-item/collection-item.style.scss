@@ -1,5 +1,6 @@
 .collection-item {
     width: 22vw;
+    padding: 20px 20px;
     display: flex;
     flex-direction: column;
     height: 350px;
@@ -11,6 +12,10 @@
         opacity: 0.8;
       }
       .custom-button{
+        opacity: 0.85;
+        display: flex;
+      }
+      .custom-button.inverted{
         opacity: 0.85;
         display: flex;
       }
@@ -30,6 +35,14 @@
       position:absolute;
       top: 255px;
       display: none;
+
+      &.inverted {
+        width: 80%;
+      opacity: 0.7;
+      position:absolute;
+      top: 105px;
+      display: none;
+      }
     }
   
     .collection-footer {
@@ -37,10 +50,11 @@
       height: 5%;
       display: flex;
       justify-content: space-between;
-      font-size: 18px;
+      font-size: 12px;
   
       .name {
         width: 90%;
+        padding-right: 10px;
         margin-bottom: 15px;
       }
   
