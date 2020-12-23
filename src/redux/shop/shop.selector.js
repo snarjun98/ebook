@@ -19,4 +19,11 @@ export const selectCollection=collectionUrlPrams =>
 createSelector(
     [selectShopCollectionsData],
     SHOP_DATA=>SHOP_DATA[collectionUrlPrams]
-)
+);
+
+export const selectCollectionitem=(collectionUrlPrams,collectionUrlPrams1) =>
+createSelector(
+    [selectShopCollectionsData],
+    SHOP_DATA=>((SHOP_DATA[collectionUrlPrams].items).find(item=>item.id===collectionUrlPrams1))
+);
+

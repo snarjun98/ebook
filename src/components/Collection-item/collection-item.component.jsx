@@ -4,14 +4,14 @@ import { connect } from 'react-redux';
 import {addItem} from '../../redux/cart/cart.action';
 import { withRouter } from 'react-router';
 
-const CollectionItem=({item,addItem}) =>{
-    const {name,Year_of_publication,imageUrl_m}=item;
+const CollectionItem=({item,addItem,history,match}) =>{
+    const {name,Year_of_publication,imageUrl_l,linkUrl}=item;
     return(
     <div className="collection-item">
         <div
         className='image'
         style={{
-            backgroundImage:`url(${imageUrl_m})`
+            backgroundImage:`url(${imageUrl_l})`
         }}
         />
 <div className='collection-footer'>
@@ -19,7 +19,7 @@ const CollectionItem=({item,addItem}) =>{
     <span className='price'>{Year_of_publication}</span>
 </div>
 
-<CustomButton onClick={()=>addItem(item)} inverted>VIEW BOOK</CustomButton>
+<CustomButton onClick={() => history.push(`${match.url}${linkUrl}`)} inverted>VIEW BOOK</CustomButton>
 <CustomButton onClick={()=>addItem(item)} >Add to BAG</CustomButton>
         </div>
     
@@ -29,4 +29,4 @@ const mapDispatchToProps = Dispatch =>({
     addItem: item=>Dispatch(addItem(item))
 });
 
-export default connect(null,mapDispatchToProps)(CollectionItem);
+export default withRouter(connect(null,mapDispatchToProps)(CollectionItem));

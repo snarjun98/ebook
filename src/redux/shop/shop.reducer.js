@@ -13,7 +13,9 @@ const INITIAL_STATE ={
         Publisher: "Oxford University Press",
         imageUrl_s: "http://images.amazon.com/images/P/0195153448.01.THUMBZZZ.jpg",
         imageUrl_m: "http://images.amazon.com/images/P/0195153448.01.MZZZZZZZ.jpg",
-        imageUrl_l: "http://images.amazon.com/images/P/0195153448.01.LZZZZZZZ.jpg"
+        imageUrl_l: "http://images.amazon.com/images/P/0195153448.01.LZZZZZZZ.jpg",
+        linkUrl:'/hats/0195153448',
+        descreption:"Building on the bestselling tradition of previous editions, Classical Mythology, Tenth Edition, is the most comprehensive survey of classical mythology available--and the first full-color textbook of its kind. Featuring the authors' clear and extensive translations of original sources, it brings to life the myths and legends of Greece and Rome in a lucid and engaging style. The text contains a wide variety of faithfully translated passages from Greek and Latin sources, including Homer, Hesiod, all the Homeric Hymns, Pindar, Aeschylus, Sophocles, Euripides, Herodotus, Plato, Lucian, Lucretius, Vergil, Ovid, and Seneca.Acclaimed authors Mark P.O. Morford, Robert J. Lenardon, and Michael Sham incorporate a dynamic combination of poetic narratives and enlightening commentary to make the myths come alive for students. Offering historical and cultural background on the myths (including evidence from art and archaeology) they also provide ample interpretative material and examine the enduring survival of classical mythology and its influence in the fields of art, literature, music, dance, and film."
       },
       {
         id: "0002005018",
