@@ -55,7 +55,7 @@ componentWillUnmount(){
 }
 
 const mapStateToProps = createStructuredSelector({
-  currentuser :selectCurrentUser
+  currentuser :selectCurrentUser,
 });
 
 const mapDispatchToProps = dispatch =>({

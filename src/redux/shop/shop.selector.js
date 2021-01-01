@@ -7,23 +7,24 @@ const selectShopCollections= state =>state.shop;
 
 export const selectShopCollectionsData = createSelector(
     [selectShopCollections],
-    shop =>shop.SHOP_DATA
+    shop =>shop.collections
 );
 
 export const selectShopCollectionsPreview = createSelector(
     [selectShopCollectionsData],
-    collections =>Object.keys(collections).map(key=>collections[key])
+    collections =>
+    collections ? Object.keys(collections).map(key=>collections[key]):[]
 );
 
 export const selectCollection=collectionUrlPrams =>
 createSelector(
     [selectShopCollectionsData],
-    SHOP_DATA=>SHOP_DATA[collectionUrlPrams]
+    collections=>(collections?collections[collectionUrlPrams]:null)
 );
 
 export const selectCollectionitem=(collectionUrlPrams,collectionUrlPrams1) =>
 createSelector(
     [selectShopCollectionsData],
-    SHOP_DATA=>((SHOP_DATA[collectionUrlPrams].items).find(item=>item.id===collectionUrlPrams1))
+    collections=>((collections[collectionUrlPrams].items).find(item=>item.id===collectionUrlPrams1))
 );
 
