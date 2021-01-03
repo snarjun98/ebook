@@ -1,10 +1,25 @@
 import './checkout-item.style.scss';
+import React from 'react';
 import {connect} from 'react-redux';
 import {clearItemfromCart,addItem,removeItem} from '../../redux/cart/cart.action';
 
 
-const CheckoutItem = ({cartItem,clearItem,RemoveItem,AddItem}) =>{
+class  CheckoutItem extends React.Component{
+state={
+    from:'',
+    to:''
+}
+handleChange = event =>{
+    const {name,value} = event.target;
+    this.setState({[name]:value});
+};
+
+render(){
+ const {cartItem,clearItem,RemoveItem,AddItem}=this.props; 
     const {name,imageUrl_m,quantity}=cartItem;
+    const {from,to}=this.state
+    const d=new Date().toISOString().slice(0, 10); // to get date in yyyy-mm-dd formate
+    
     return(
     <div className ='checkout-item'>
         <div className='image-container'>
@@ -16,10 +31,17 @@ const CheckoutItem = ({cartItem,clearItem,RemoveItem,AddItem}) =>{
                 <span className='value'>{quantity}</span> 
                 <div className='arrow' onClick={()=>AddItem(cartItem)}>&#10095;</div>
                 </span>
-            
-            <div className='remove-button' onClick={()=>clearItem(cartItem)}>&#10005;</div>
+            <span className='datepickerFrom'>
+                <input type='date' name='from' label='From'  onChange={this.handleChange}  value={from}  min={d} required />
+            </span>
+            <span className='datepickerTo'>
+            <input type='date' name='to' label='To' onChange={this.handleChange}  value={to} min={from} max={(parseInt(from.slice(0,4))+1)+from.slice(4,10)}   required/>
+            </span>
+            <span className='remove-button' onClick={()=>clearItem(cartItem)}>&#10005;</span>
     </div>
 )};
+
+}
 
 const mapDispatchToProps = dispatch =>({
     clearItem:item => dispatch(clearItemfromCart(item)),

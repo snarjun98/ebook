@@ -9,8 +9,8 @@
     justify-content: space-between;
   
     .image-container {
-      width: 25%;
-      
+      width: 14%;
+      padding: 10px 10px;
   
       img {
         width: 100%;
@@ -20,17 +20,15 @@
     }
     .name
      {
-      width: 25%;
+      width: 14%;
       font-size: 12px;
-      padding-right: 20px;
-
+  
      
     }
 
   
     .quantity {
-      width:25% ;
-      padding-left: 10px;
+      width:8% ;
       display: flex;
       
       
@@ -42,12 +40,15 @@
       }
         
     }
-  
-    .remove-button {
-      width: 25%;
-      padding-left: 13px;
-      cursor: pointer;
-      
+    .remove-button{
+      width: 8%;
     }
+    .datepickerTo{
+      width: 16%;
+    }
+    .datepickerFrom{
+      width: 16%;
+    }
+   
   }
   
