@@ -40,22 +40,37 @@ componentWillUnmount(){
 
   render(){
     return (
+      this.props.currentuser?(
     <div >
-      <Header ></Header>
-    <Switch>
-     <Route exact path='/' component={HomePage}/>
+       <Header ></Header>
+     <Switch>
      <Route path='/shop' component={shopPage}/>
-     <Route exact path='/checkout' component={CheckoutPage}/>
-     <Route exact path='/sigin' render={()=>this.props.currentuser ?(<Redirect to='/' />):(<SigninandSignupPage></SigninandSignupPage>)}/>
+      <Route exact path='/' render={()=>this.props.currentuser.type==='admin' ?(<Redirect to='/shop' />):(<HomePage></HomePage>)}/>
+      
+      <Route exact path='/checkout' component={CheckoutPage}/>
+      <Route exact path='/sigin' render={()=>this.props.currentuser ?(<Redirect to='/' />):(<SigninandSignupPage></SigninandSignupPage>)}/>
 
-    </Switch>
-    </div>
+     </Switch>
+     </div>
+      ):
+      (<div >
+        <Header ></Header>
+      <Switch>
+       
+       <Route exact path='/' component={HomePage}/>
+       <Route path='/shop' component={shopPage}/>
+       <Route exact path='/checkout' component={CheckoutPage}/>
+       <Route exact path='/sigin' component={SigninandSignupPage}/>
+ 
+      </Switch>
+      </div>
+      )
   );
 }
 }
 
 const mapStateToProps = createStructuredSelector({
-  currentuser :selectCurrentUser,
+  currentuser :selectCurrentUser
 });
 
 const mapDispatchToProps = dispatch =>({

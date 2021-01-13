@@ -11,14 +11,15 @@ class SignUp extends React.Component{
             displayName: '',
             email: '',
             password: '',
-            confirmPassword: ''
+            confirmPassword: '',
+            type:''
         }
     }
 
     handleSubmit = async event => {
         event.preventDefault();
     
-        const { displayName, email, password, confirmPassword } = this.state;
+        const { displayName, email, password, confirmPassword ,type} = this.state;
     
         if (password !== confirmPassword) {
           alert("passwords don't match");
@@ -31,13 +32,14 @@ class SignUp extends React.Component{
             password
           );
     
-          await createUserProfileDocument(user, { displayName });
+          await createUserProfileDocument(user, {displayName,type});
     
           this.setState({
             displayName: '',
             email: '',
             password: '',
-            confirmPassword: ''
+            confirmPassword: '',
+            type:''
           });
         } catch (error) {
           console.error(error);
@@ -88,6 +90,22 @@ render(){
                 label='Confirm Password'
                 required
                />
+               <input
+                type='radio'
+                name='type'
+                value='Librarian'
+                onChange={this.handleChange}
+                required
+               /><label>Librarian</label>
+               <input
+                type='radio'
+                name='type'
+                value='Member'
+                onChange={this.handleChange}
+                required
+               /><label>Member</label>
+
+               
                 <CustomButton type='submit'>Sign Up</CustomButton>
             </form>
         </div>
