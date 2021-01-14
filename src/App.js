@@ -3,6 +3,7 @@ import React from 'react';
 import { Switch ,Route,Redirect } from 'react-router-dom';
 import HomePage from './pages/Homepage/homepage.component.jsx';
 import shopPage from './pages/shop/shop.component.jsx';
+import searchPageRoute from "./pages/search/searchRoute.component";
 import CheckoutPage from './pages/checkout/checkout.component';
 import SigninandSignupPage from './pages/sigin_signup/sigin_signup.component';
 import Header from './components/header/haeder.component';
@@ -49,7 +50,7 @@ componentWillUnmount(){
       
       <Route exact path='/checkout' component={CheckoutPage}/>
       <Route exact path='/sigin' render={()=>this.props.currentuser ?(<Redirect to='/' />):(<SigninandSignupPage></SigninandSignupPage>)}/>
-
+      <Route path='/search' component={searchPageRoute}/>
      </Switch>
      </div>
       ):
@@ -61,7 +62,7 @@ componentWillUnmount(){
        <Route path='/shop' component={shopPage}/>
        <Route exact path='/checkout' component={CheckoutPage}/>
        <Route exact path='/sigin' component={SigninandSignupPage}/>
- 
+       <Route path='/search' component={searchPageRoute}/>
       </Switch>
       </div>
       )
