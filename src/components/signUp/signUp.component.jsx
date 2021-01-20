@@ -93,7 +93,7 @@ render(){
                <input
                 type='radio'
                 name='type'
-                value='Librarian'
+                value='admin'
                 onChange={this.handleChange}
                 required
                /><label>Librarian</label>

@@ -4,9 +4,11 @@ import {createStructuredSelector} from 'reselect'
 import './checkout.style.scss';
 import CheckoutItem from '../../components/checkout-item/checkout-item.component'
 import {selectCartItems} from '../../redux/cart/cart.selector';
-// import StripeCheckoutButton from '../../components/stripe-button/stripe-button.component';
+import CustomButton from '../../components/Custom-button/custom-button.component';
+import { selectCurrentUser } from "../../redux/user/user.selector";
 
-const CheckoutPage = ({cartItems,total}) =>(
+const CheckoutPage = ({cartItems,history,currentuser}) =>(
+    
     <div className='checkout-page'>
     <div className='checkout-header'>
         <div className='header-block'>
@@ -32,12 +34,17 @@ const CheckoutPage = ({cartItems,total}) =>(
             cartItems.map(cartItem =>
                 <CheckoutItem key={cartItem.id} cartItem={cartItem}/>)
         }
-        {/* <StripeCheckoutButton price={0} />     */}
-    </div>
+        { currentuser?
+        (<CustomButton onClick={()=>{alert("Collect your Book on reserved Date Thank you");history.push('/')}} >Reserve Book</CustomButton>):
+        (<CustomButton onClick={()=>{alert("Plz Sigin To Reserve Books");history.push('/sigin')}} >Reserve Book</CustomButton>)   
+        }
+        </div>
 );
 
 const mapsStateToProps= createStructuredSelector({
+    currentuser:selectCurrentUser,
     cartItems: selectCartItems,
+
 });
 
 

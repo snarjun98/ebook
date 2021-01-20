@@ -5,8 +5,10 @@ import { connect  } from 'react-redux';
 import {updateCollections} from "../../redux/shop/shop.action";
 import WithSpinner from "../../components/with-spinner/with-spinner.component";
 import SearchPage from "./search.component";
+import  viewBookPage  from '../viewBook/viewBookPage.component';
 
 const SearchPageWithSpinner=WithSpinner(SearchPage);
+const ViewBookPageWithSpinner=WithSpinner(viewBookPage);
 
 class  searchPageRoute extends React.Component {
  state={
@@ -40,6 +42,13 @@ class  searchPageRoute extends React.Component {
           path={`${match.path}`}
           render={props => (
             <SearchPageWithSpinner isLoading={loading} {...props} />
+          )}
+        />
+        <Route
+        exact
+          path={`${match.path}/:collectionId/:selectionItemId`}
+          render={props => (
+            <ViewBookPageWithSpinner isLoading={loading} {...props} />
           )}
         />
 

@@ -6,8 +6,8 @@ import {clearItemfromCart,addItem,removeItem} from '../../redux/cart/cart.action
 
 class  CheckoutItem extends React.Component{
 state={
-    from:'',
-    to:''
+    from:new Date().toISOString().slice(0, 10),
+    to:new Date().toISOString().slice(0, 10)
 }
 handleChange = event =>{
     const {name,value} = event.target;

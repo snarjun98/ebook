@@ -33,8 +33,8 @@ View Members
 <Link className='option' to='/shop'>
 SHOP
 </Link>
-<Link className='option' to='/shop'>
-CONTACT
+<Link className='option' to='/search'>
+SEARCH
 </Link>
 <div className='option' onClick={()=> auth.signOut() }>SIGN OUT</div>
 <CartIcon />
@@ -51,8 +51,8 @@ CONTACT
 <Link className='option' to='/shop'>
 SHOP
 </Link>
-<Link className='option' to='/shop'>
-CONTACT
+<Link className='option' to='/search'>
+SEARCH
 </Link>
 {
     <Link className='option' to='/sigin' >SIGN IN</Link>

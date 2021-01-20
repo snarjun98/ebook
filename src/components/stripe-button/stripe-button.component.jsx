@@ -11,7 +11,7 @@ const StripeCheckoutButton =({price}) =>{
 
     return(
         <StripeCheckout
-        label='Pay Now'
+        label='Reserve'
         currency='INR'
         name='E-book'
         billingAddress
